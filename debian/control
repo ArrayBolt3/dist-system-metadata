@@ -1,0 +1,29 @@
+## Copyright (C) 2012 - 2025 ENCRYPTED SUPPORT LLC <adrelanos@kicksecure.com>
+## See the file COPYING for copying conditions.
+
+Source: dist-system-metadata
+Section: misc
+Priority: optional
+Maintainer: Patrick Schleizer <adrelanos@kicksecure.com>
+Build-Depends: debhelper (>= 13), debhelper-compat (= 13)
+Homepage: https://github.com/Kicksecure/dist-system-metadata
+Vcs-Browser: https://github.com/Kicksecure/dist-system-metadata
+Vcs-Git: https://github.com/Kicksecure/dist-system-metadata.git
+Standards-Version: 4.7.2
+Rules-Requires-Root: no
+
+Package: dist-system-metadata
+Architecture: all
+Depends: ${misc:Depends}
+Description: Distributed system metadata for derivative distributions
+ Ships data and metadata that other packages consume but which changes on a
+ faster cadence than the code packages themselves, such as pinned known-good
+ version numbers and bundled signing keys.
+ .
+ Carrying this metadata in its own minimal, dependency-light package lets it be
+ updated and migrated between distribution suites independently of the heavier
+ code packages that would otherwise hold back such updates.
+ .
+ Each consumer gets its own namespaced subdirectory under
+ /usr/share/dist-system-metadata/, so the package is extensible to further
+ consumers beyond its initial tb-updater use case.
